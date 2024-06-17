@@ -7,16 +7,40 @@ const router = express.Router();
 /* ************************************************************************* */
 // Define Your API Routes Here
 /* ************************************************************************* */
-const itemActions = require("./controllers/itemActions");
 
 router.get("/courses", (req, res) => {
-  client.query("SELECT * FROM courses").then(([courses]) => {
-    res.status(200).json(courses);
-  });
+  client
+    .query(
+      `
+    SELECT 
+      c.id, c.name, c.quantity, c.unit, 
+      cat.name AS category_name, 
+      s.description AS status_description
+    FROM Courses c
+    INNER JOIN Categories cat ON c.category_id = cat.id
+    INNER JOIN Status s ON c.status_id = s.id
+  `
+    )
+    .then((courses) => res.status(200).json(courses[0]));
 });
 
-// Route to add a new item
-router.post("/items", itemActions.add);
+router.get("/courses/:id", (req, res) => {
+  client
+    .query(
+      `
+    SELECT 
+      c.id, c.name, c.quantity, c.unit, 
+      cat.name AS category_name, 
+      s.description AS status_description
+    FROM Courses AS c
+    INNER JOIN Categories cat ON c.category_id = cat.id
+    INNER JOIN Status s ON c.status_id = s.id 
+    WHERE c.id = ?;
+  `,
+      [req.params.id]
+    )
+    .then((courses) => res.status(200).json(courses[0][0]));
+});
 /* ************************************************************************* */
 
 module.exports = router;
