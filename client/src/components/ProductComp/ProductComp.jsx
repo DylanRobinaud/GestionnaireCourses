@@ -17,12 +17,13 @@ function ProductComp({ course }) {
         <p>{course.category_name}</p>
         <label>
           Quantity :
-          <select>
-            <option value="1">1 {course.unit}</option>
-            <option value="2">2 {course.unit}</option>
-            <option value="3">3 {course.unit}</option>
-            <option value="4">4 {course.unit}</option>
-            <option value="5">5 {course.unit}</option>
+          <select className="productInput">
+            <p>{course.quantity}</p>
+            <option value="1">{course.quantity}</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
           </select>
         </label>
         <p>{course.status_description}</p>

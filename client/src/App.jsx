@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import ProductComp from "./components/ProductComp/ProductComp";
+import FormComp from "./components/FormComp/FormComp";
 
 import "./App.css";
 
@@ -11,6 +12,7 @@ function App() {
         <h1 className="productH1">Gestionaire de courses :</h1>
       </header>
       <section>
+        <FormComp />
         {courses.map((course) => (
           <ProductComp key={course.id} course={course} />
         ))}

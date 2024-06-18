@@ -43,15 +43,15 @@ const read = async (req, res, next) => {
 const add = async (req, res, next) => {
   // Extract the item data from the request body
   const item = req.body;
-
   try {
     // Insert the item into the database
-    const insertId = await client.query("INSERT INTO items(title) VALUES (?)", [
-      item.title,
-    ]);
+    const insertId = await client.query(
+      "INSERT INTO Courses (name, category_id, quantity, status_id) VALUES (?, ?, ?, ?)",
+      [item.name, item.category_id, item.quantity, item.status_id]
+    );
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-    res.status(201).json({ insertId });
+    res.status(201).json({ id: insertId[0].insertId, ...req.body });
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);

@@ -14,6 +14,14 @@
   color: burlywood;
 }
 
+.productInput {
+  background-color: #767676;
+  border-radius: 2rem;
+  color: burlywood;
+  padding: 0 0.5rem;
+  margin: 0 0.5rem;
+}
+
 .productImg {
   width: 2rem;
   background-color: burlywood;

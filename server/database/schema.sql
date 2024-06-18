@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS Categories;
+DROP TABLE IF EXISTS Status;
+DROP TABLE IF EXISTS Courses;
 CREATE TABLE Categories (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL
@@ -14,7 +17,6 @@ CREATE TABLE Courses (
     category_id INT,
     status_id INT,
     quantity INT,
-    unit VARCHAR(50),
     FOREIGN KEY (category_id) REFERENCES Categories(id),
     FOREIGN KEY (status_id) REFERENCES Status(id)
 );
@@ -30,19 +32,19 @@ INSERT INTO Status (description) VALUES
 ('Acheté'), 
 ('Annulé');
 
-INSERT INTO Courses (name, category_id, status_id, quantity, unit) VALUES 
-('Pommes', 1, 1, 5, 'kg'),
-('Lait', 3, 1, 2, 'litres'),
-('Carottes', 2, 1, 3, 'kg'),
-('Bananes', 1, 1, 6, 'kg'),
-('Yaourt', 3, 1, 10, 'pièces'),
-('Poulet', 4, 1, 2, 'kg'),
-('Fromage', 3, 1, 1, 'kg'),
-('Poivrons', 2, 1, 4, 'pièces'),
-('Tomates', 2, 1, 5, 'kg'),
-('Oranges', 1, 1, 4, 'kg'),
-('Beurre', 3, 1, 2, 'plaquettes'),
-('Poisson', 4, 1, 1, 'kg'),
-('Poires', 1, 1, 3, 'kg'),
-('Laitue', 2, 1, 2, 'pièces'),
-('Crème fraîche', 3, 1, 3, 'pots');
+INSERT INTO Courses (name, category_id, quantity, status_id) VALUES 
+('Pommes', 1, 1, 1),
+('Lait', 3, 1, 1),
+('Carottes', 2, 1, 1),
+('Bananes', 1, 1, 1),
+('Yaourt', 3, 1, 1),
+('Poulet', 4, 1, 1),
+('Fromage', 3, 1, 1),
+('Poivrons', 2, 1, 1),
+('Tomates', 2, 1, 1),
+('Oranges', 1, 1, 1),
+('Beurre', 3, 1, 1),
+('Poisson', 4, 1, 1),
+('Poires', 1, 1, 1),
+('Laitue', 2, 1, 1),
+('Crème fraîche', 3, 1, 1);
