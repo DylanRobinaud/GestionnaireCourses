@@ -13,8 +13,8 @@ function App() {
       </header>
       <section>
         <FormComp />
-        {courses.map((course) => (
-          <ProductComp key={course.id} course={course} />
+        {courses.map((course, index) => (
+          <ProductComp key={course.id} course={course} index={index} />
         ))}
       </section>
     </main>

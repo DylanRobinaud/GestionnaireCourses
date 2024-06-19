@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import connexion from "../../services/connexion";
 import "./FormComp.css";
+import SelectForm from "../SelectForm/SelectForm";
 
 const initProduct = {
   name: "",
@@ -47,22 +48,27 @@ function FormComp() {
           onChange={handleChange}
           required
         />
-        <label className="formText" htmlFor="category_id">
+        <SelectForm
+          handleChange={handleChange}
+          name="category_id"
+          title="categorie"
+        />
+        {/* <label className="formText" htmlFor="category_id">
           Catégorie :
-        </label>
-        <select
+          </label>
+          <select
           className="formText formInput"
           id="category_id"
           name="category_id"
           value={formData.category_id}
           onChange={handleChange}
           required
-        >
+          >
           <option value="1">Fruits</option>
           <option value="2">Légumes</option>
           <option value="3">Produits Laitiers</option>
           <option value="4">Viandes</option>
-        </select>
+          </select> */}
         <label className="formText" htmlFor="quantity">
           Quantité :
         </label>
@@ -80,10 +86,15 @@ function FormComp() {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <label className="formText" htmlFor="status_id">
+        <SelectForm
+          handleChange={handleChange}
+          name="status_id"
+          title="status"
+        />
+        {/* <label className="formText" htmlFor="status_id">
           Statut :
-        </label>
-        <select
+          </label>
+          <select
           className="formText formInput"
           id="status_id"
           name="status_id"
@@ -94,7 +105,7 @@ function FormComp() {
           <option value="1">A acheter</option>
           <option value="2">Acheté</option>
           <option value="3">Annulé</option>
-        </select>
+        </select> */}
         <button className="formText formButton" type="submit">
           Ajouter
         </button>

@@ -26,7 +26,7 @@ function ProductComp({ course }) {
             <option value="5">5</option>
           </select>
         </label>
-        <p>{course.status_description}</p>
+        <p>{course.status_name}</p>
       </ul>
     </div>
   );

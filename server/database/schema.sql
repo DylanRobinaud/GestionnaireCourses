@@ -8,7 +8,7 @@ CREATE TABLE Categories (
 
 CREATE TABLE Status (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    description VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Courses (
@@ -27,7 +27,7 @@ INSERT INTO Categories (name) VALUES
 ('Produits Laitiers'), 
 ('Viandes');
 
-INSERT INTO Status (description) VALUES 
+INSERT INTO Status (name) VALUES 
 ('A acheter'), 
 ('Acheté'), 
 ('Annulé');
